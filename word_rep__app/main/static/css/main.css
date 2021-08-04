@@ -1,0 +1,563 @@
+
+/* ------------------------------------- */
+/* Элементы, которые встречаются на всех страницах */
+/* ------------------------------------- */
+img {
+    width: 100%;
+}
+button {
+    color: #fff;
+    border: 1px solid #fff;
+    background: rgba(255, 255, 255, 0.13);
+    padding: 5px 18px;
+    margin: 0 10px;
+    font-size: 18px;
+    font-weight: 300;
+    cursor: pointer;
+}
+button:focus-visible, button:focus {
+    outline: none;
+}
+/* Ссылки */
+.a_on_black {
+    color:rgba(255, 255, 255, 0.93);
+}
+.a_on_black:hover {
+    text-decoration: none;
+    color:rgba(255, 255, 255, 0.93);
+}
+.a_on_white {
+    color:rgba(0, 0, 0, 0.498);
+}
+.a_on_white:hover {
+    text-decoration: none;
+    color:rgba(0, 0, 0, 0.498);
+}
+/* ./ссылки */
+/* For background */
+.overlay {
+    background: url("../img/telephone-booth-768610_1920.jpg") no-repeat center;
+    background-size: cover;
+    position: relative;
+    background-attachment: fixed;
+}
+.overlay::before {
+    content: "";
+    background: rgba(0, 0, 0, 0.598);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.content {
+    position: relative;
+    height: 100vh;
+    backdrop-filter: blur(3px);
+}
+/* ./For background */
+.container-max-height {
+    height: 100%;
+    position: relative;
+}
+header {
+    padding: 50px 0px;
+}
+header img{
+    width: 220px;
+}
+nav {
+    border-top: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+    width: max-content;
+}
+nav .avtorization {
+    height: 100%;
+}
+.avtorization .nav_el {
+    margin: 0px 14px;
+}
+h2 {
+    font-size: 24px;
+    text-align: center;
+    font-weight: 200;
+    position: relative;
+    margin-bottom: 30px;
+}
+h2 span {
+    display: inline-block;
+    position: relative;
+    line-height: 45px;
+}
+h2 span::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: -10%;
+    width: 120%;
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.598);
+}
+footer {
+    text-align: center;
+    border-top: 1px solid #8a8a8a73;
+}
+footer .content {
+    height: auto;
+    padding: 25px 0px;
+}
+footer p, footer p .a_on_black {
+    color: rgba(255, 255, 255, 0.73);
+    font-size: 14px;
+}
+.link_active {
+    text-decoration: underline;
+}
+.link_active:hover {
+    text-decoration: underline;
+}
+.link_active::after {
+    text-decoration: none;
+}
+.label_politic {
+    color: rgba(255, 255, 255, 0.73);
+    margin-bottom: 30px;
+}
+/* Кастомный checkbox */
+input[type="checkbox"]:checked, 
+input[type="checkbox"]:not(:checked), 
+input[type="radio"]:checked, 
+input[type="radio"]:not(:checked) 
+{
+    position: absolute;
+    left: -9999px;
+}
+
+input[type="checkbox"]:checked + label, 
+input[type="checkbox"]:not(:checked) + label, 
+input[type="radio"]:checked + label, 
+input[type="radio"]:not(:checked) + label {
+    display: inline-block;
+    position: relative;
+    padding-left: 30px;
+    line-height: 20px;
+    cursor: pointer;
+}
+
+input[type="checkbox"]:checked + label:before, 
+input[type="checkbox"]:not(:checked) + label:before,
+input[type="radio"]:checked + label:before, 
+input[type="radio"]:not(:checked) + label:before {
+    content: "";
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #dddddd;
+    background-color: transparent;
+}
+
+input[type="checkbox"]:checked + label:before, 
+input[type="checkbox"]:not(:checked) + label:before {
+    border-radius: 2px;
+}
+
+input[type="radio"]:checked + label:before, 
+input[type="radio"]:not(:checked) + label:before {
+    border-radius: 100%;
+}
+
+input[type="checkbox"]:checked + label:after, 
+input[type="checkbox"]:not(:checked) + label:after, 
+input[type="radio"]:checked + label:after, 
+input[type="radio"]:not(:checked) + label:after {
+    content: "";
+    position: absolute;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+
+input[type="checkbox"]:checked + label:after, 
+input[type="checkbox"]:not(:checked) + label:after {
+    left: 5px;
+    top: 6px;
+    width: 10px;
+    height: 7px;
+    border-radius: 1px;
+    border-left: 4px solid #fff;
+    border-bottom: 4px solid #fff;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+input[type="radio"]:checked + label:after, 
+input[type="radio"]:not(:checked) + label:after {
+    left: 5px;
+    top: 5px;
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    background-color: #e145a3;
+}
+
+input[type="checkbox"]:not(:checked) + label:after, 
+input[type="radio"]:not(:checked) + label:after {
+    opacity: 0;
+}
+
+input[type="checkbox"]:checked + label:after, 
+input[type="radio"]:checked + label:after {
+    opacity: 1;
+}
+
+/* Чтобы не менялись стили при автозаполнении */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus
+input:-webkit-autofill, 
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color: #fff;
+  -webkit-box-shadow: 0 0 0px 1000px transparent inset;
+  transition: background-color 5000s ease-in-out 0s;
+  background: -webkit-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(0,174,255,0.04) 50%,rgba(255,255,255,0) 51%,rgba(0,174,255,0.03) 100%);  
+}
+
+
+/* ------------------------------------- */
+/* Главная страница */
+/* ------------------------------------- */
+.main_sec_content {
+    top: 50%;
+    transform: translateY(-50%);
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    left: 0;
+}
+.main_sec_content h1 {
+    font-size: 36px;
+    color: rgba(255, 255, 255, 0.93);
+    font-weight: 200;
+}
+.main_sec_content p {
+    color: rgba(255, 255, 255, 0.53);
+    font-size: 14px;
+    font-weight: 100;
+    margin-bottom: 50px;
+    display: inline-block;
+}
+.main_sec_content p .in_midle::after, .main_sec_content p .in_midle::before {
+    content: '\2022';
+    margin: 0px 15px;
+}
+/* О проекте */
+.about_us {
+    padding: 50px 0px 75px;
+}
+.about_us img {
+    filter: drop-shadow(4px 4px 5px rgba(0, 0, 0, 0.51));
+}
+.about_us p {
+    color: rgba(0, 0, 0, 0.598);
+    font-weight: 200;
+}
+/* ./О проекте */
+/* Попробуй без регистрации */
+.try_it {
+    text-align: center;
+}
+.try_it .content {
+    height: auto;
+    padding: 70px 0px;
+}
+.try_it p {
+    color: rgba(255, 255, 255, 0.93);
+    margin-bottom: 30px;
+    font-size: 18px;
+}
+/* ./Попробуй без регистрации */
+/* Как это работает? */
+.how_it_works {
+    padding: 50px 0px 75px;
+}
+.how_it_works li {
+    color: rgba(0, 0, 0, 0.598);
+    font-weight: 200;
+    margin-bottom: 30px;
+}
+.how_it_works ol {
+    list-style-type: none; /* Убираем исходные маркеры */
+    counter-reset: my-counter; /* Задаём имя счетчика */
+    position: relative;
+}
+.how_it_works li::before {
+    content: counter(my-counter); /* Выводим число */
+    counter-increment: my-counter; /* Увеличиваем значение счётчика */
+
+    position: absolute;
+    left: 0;
+    color: rgba(0, 0, 0, 0.598);
+    font-weight: 200;
+    font-size: 44px;
+    line-height: 44px;
+    text-shadow: 3px 1px 2px rgb(0 0 0 / 24%);
+}
+/* ./Как это работает? */
+
+
+
+/* ------------------------------------- */
+/* Регистрация / Авторизация */
+/* ------------------------------------- */
+.registration .overlay::before {
+    /* width: 50%;
+    left: auto;
+    right: 0; */
+    background: linear-gradient(270deg, rgba(0, 0, 0, 0.69) 49.48%, rgba(0, 0, 0, 0) 100%);
+}
+.registration .content {
+    width: 50%;
+    margin-left: auto;
+    backdrop-filter: blur(1px);
+}
+.registration img {
+    width: 250px;
+}
+.registration header {
+    padding: 30px 0px;
+}
+.registration .links  {
+    margin-bottom: 30px;
+}
+.registration .devide{
+    margin: 0px 10px;
+    display: inline-block;
+    color: #fff;
+}
+.registration form {
+    width: 80%;
+    margin: 0 auto;
+    text-align: left;
+}
+.registration .field {
+    margin-bottom: 15px;
+}
+.registration form .field_last {
+    margin-bottom: 30px;
+}
+.registration button {
+    display: block;
+    margin: 0 auto;
+}
+
+
+/* ------------------------------------- */
+/* Страница добавления записи */
+/* ------------------------------------- */
+.create_note_page_overlay .content {
+    min-height: 100vh;
+    height: auto;
+    padding-bottom: 50px;
+}
+/* Main work zone */
+.main_work_form {
+    /* min-height: 80vh; */
+    position: relative;
+}
+.work_title {
+    /* height: 5vh; */
+}
+.work_place {
+    min-height: 54vh;
+    /* overflow-y: auto; */
+}
+.optional_buttons {
+    /* height: 10vh; */
+    /* position: absolute; */
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.add_new_cont {
+    margin: 30px 0px;
+    text-align: right;
+}
+
+#add_new_word {
+    width: 50px;
+    height: 50px;
+    font-size: 36px;
+    font-weight: 400;
+    border-radius: 50%;
+    padding: 0px;
+    position: relative;
+}
+#add_new_word span {
+    position: absolute;
+    display: block;
+    width: 36px;
+    height: 36px;
+    line-height: 30px;
+    top: 50%;
+    left: 50%;
+    margin-top: -18px;
+    margin-left: -18px;
+}
+.block {
+    margin-bottom: 20px;
+}
+.work_title  {
+    margin-bottom: 30px;
+}
+.field {
+    width: 100%;
+    background: transparent;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    outline: none;
+    border-bottom: 1px solid #ffffffdb;
+    color: #fff;
+    font-size: 18px;
+    padding: 3px 7px;
+    font-weight: 300;
+}
+.field::placeholder {
+    color: #ffffffdb;
+    font-weight: 300;
+}
+.word_field {
+    font-size: 14px;
+}
+h4 {
+    font-size: 24px;
+    color: #fff;
+    text-align: center;
+}
+/* /.Main work zone */
+
+#count {
+    display: none;
+}
+
+
+/* ------------------------------------- */
+/* Главная для авторизованных
+/* ------------------------------------- */
+
+.home_authorization .note_title {
+    text-align: left;
+    margin-bottom: 0px;
+}
+
+.home_authorization .note_buttns {
+    display: flex;
+}
+.home_authorization .content_output {
+    min-height: 65vh;
+}
+
+.home_authorization .note_buttns {
+    display: flex;
+    justify-content: space-between;
+}
+
+.home_authorization .note {
+    line-height: 35px;
+    margin-bottom: 15px;
+}
+
+
+/* ------------------------------------- */
+/* АДАПТИВ ПОД МОБИЛЬНЫЕ УСТРОЙСТВА */
+/* ------------------------------------- */
+@media (max-width: 1199.98px) {
+    
+}
+
+@media (max-width: 991.98px) {
+    .about_us img {
+        margin-bottom: 30px;
+    }
+    .how_it_works img {
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    header img {
+        width: 150px;
+    }
+    nav {
+        font-size: 14px;
+    }
+    .main_sec_content h1 {
+        line-height: 40px;
+        margin-bottom: 30px;
+    }
+    .main_sec_content p {
+        display: flex;
+        flex-direction: column;
+    }
+    .btn_sec button {
+        margin-bottom: 15px;
+    }
+    .btn_sec button:last-child {
+        margin-bottom: 0px;
+    }
+    .registration .content {
+        width: 100%;
+    }
+    .registration .overlay::before {
+        background: rgba(0, 0, 0, 0.598);
+    }
+    .registration form {
+        width: 100%;
+    }
+}
+
+@media (max-width: 575.98px) {
+    header {
+        padding: 15px 0px;
+    }
+    nav {
+        width: 100%;
+    }
+    header .logo {
+        text-align: center;
+        padding: 30px 0px;
+    }
+    header img {
+        width: 225px;
+    }
+    .main_sec_content {
+        margin-top: 30px;
+    }
+    .optional_buttons {
+        flex-direction: column;
+    }
+    .optional_buttons button {
+        width: 80%;
+        margin-bottom: 15px;
+    }
+    .registration .main_sec_content {
+        margin-top: 0px;
+    }
+    .registration header {
+        padding: 0px;
+    }
+}

@@ -1,0 +1,77 @@
+{% extends 'main_templates/add_note.html' %}
+
+{% block title %}
+Изменить заметку
+{% endblock %}
+
+
+
+{% block work_zone %}
+<form action="{% url 'change_page' obj.id %}" method="POST" class="main_work_form" id="main_work_form">
+    {% csrf_token %}
+
+    <div class="auto_translate">
+        <input type="checkbox" name="politic" id="politic" checked>
+        <label for="politic" class="label_politic custom-checkbox">Автоматический перевод слов (вкл/выкл)</label>
+    </div>
+
+    <div class="work_title">
+        <input type="text" name="note_title" value="{{obj.name}}" placeholder="Введите название..." class="field">
+    </div>
+
+    <div class="work_place" data-mcs-theme="minimal">
+
+        <!-- title_block -->
+        <div class="title_block">
+            <div class="row">
+                <!-- English area -->
+                <div class="col-6">  
+                    <h4>English</h4>
+                </div>
+                
+                <!-- Russian area -->
+                <div class="col-6">
+                    <h4>Перевод</h4>
+                </div>
+            </div>
+        </div>
+        <!-- /.title_block -->
+        
+        <!-- new_block -->
+        {% for w in words %}
+            {% if w.note.id == true_id  %}
+                <div class="block new_block">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="word word_en">
+                                <input type="text" name="word_en_{{w.id}}" value="{{w.english_word}}" class="field word_field" value="asd" placeholder="Введите слово на английском...">
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="word word_ru">
+                                <input type="text" name="word_ru_{{w.id}}" value="{{w.russian_word}}" class="field word_field" placeholder="Введите слово на русском...">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+
+        <div class="add_new_cont">
+            <button id="add_new_word" type="button"><span>+</span></button>
+        </div>
+
+    </div>
+
+    <input type="text" value="0" id="count" name="count">
+    
+    <div class="optional_buttons">
+        <button name="save" type="submit" value="personal">Сохранить изменения в ЛК</button>
+        <button name="save" type="submit" value="mp3">Сохранить в MP3</button>
+        <button name="save" type="submit" value="pdf">Сохранить в PDF</button>
+    </div>
+
+</form>
+{% endblock %}
+
+

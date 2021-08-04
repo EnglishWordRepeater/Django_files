@@ -1,0 +1,164 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>EnglishWordRepeater</title>
+
+    <!-- Link bootstrap-reboot -->
+    <link rel="stylesheet" href="{% static 'libs/bootstrap-grid/bootstrap-reboot.css.map' %}" type='text/css' media='all' />
+    <link rel="stylesheet" href="{% static 'libs/bootstrap-grid/bootstrap-reboot.min.css' %}" type='text/css' media='all' />
+    
+    <!-- Link bootstrap-grid -->
+    <link rel="stylesheet" href="{% static 'libs/bootstrap-grid/bootstrap-grid.min.css.map' %}" type='text/css' media='all' />
+    <link rel="stylesheet" href="{% static 'libs/bootstrap-grid/bootstrap-grid.min.css' %}" type='text/css' media='all' />
+
+    <!-- Custom scroll -->
+    <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/jquery.mcustomscrollbar/3.0.6/jquery.mCustomScrollbar.min.css"> -->
+    <link rel="stylesheet" href="{% static 'libs/mCustomScrollbar/jquery.mCustomScrollbar.min.css' %}" type='text/css' media='all' />
+
+    <!-- Link our styles -->
+    <link rel="stylesheet" href="{% static 'css/main.css' %}" type='text/css' media='all' />
+    
+</head>
+
+<body>
+
+    <section class="main_sec">
+        <div class="overlay">
+            <div class="content">
+                <div class="container container-max-height">
+    
+                    <header>
+                        <div class="row d-flex justify-content-between">
+                            <div class="col-12 col-sm-auto order-2 order-sm-1">
+                                <div class="logo">
+                                    <a href="{% url 'home' %}"><img src="{% static 'img/logo.png' %}" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-auto order-1 order-sm-2 d-flex justify-content-sm-end">
+                                <nav>
+                                    <div class="avtorization d-flex justify-content-center  justify-content-sm-between align-items-center">
+                                        {% if user.is_authenticated %}
+                                            <div class="nav_el">Привет, {{ user.username }}!</div>
+                                            <div class="nav_el"><a href="{% url 'logout' %}" class="a_on_black">Выйти</a></div>
+                                        {% else %}
+                                            <div class="nav_el"><a href="{% url 'login' %}" class="a_on_black">Вход</a></div>
+                                            <div class="nav_el"><a href="{% url 'registration' %}" class="a_on_black">Регистрация</a></div>
+                                        {% endif %}
+                                    </div>
+                                </nav>
+                            </div>
+                        </div>
+                    </header>
+
+                    <div class="main_sec_content">
+                        <h1>Учите английский где и когда вам  удобно!</h1>
+                        <p>
+                            <span>во время уборки </span>
+                            <span class="in_midle">во время приготовления пищи</span>
+                            <span>по дороге на работу</span>
+                        </p>
+                        <div class="btn_sec">
+                            <button><a href="#how_it_works" class="a_on_black">Как это работает?</a></button>
+                            <button><a href="{% url 'add_note' %}" class="a_on_black">Попробовать бесплатно</a></button>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>  
+        </div>
+    </section>
+
+
+    <section class="about_us">
+        <div class="container">
+            <h2><span>О проекте</span></h2>
+            <div class="row">
+                <div class="col-12 col-lg-6 mb-1 mb-lg-0 d-flex justify-content-center flex-column ">
+                    <img src="{% static 'img/bus-3913228_1920.jpg' %}" alt="">
+                </div>
+                <div class="col-12 col-lg-6 d-flex justify-content-center flex-column">
+                    <p class="text">
+                        Мы разработали данный сайт с целью облегчить задачу заучивания новых слов. С помощью сайта вы можете создать МП3 файл с набором слов в формате (англиское слово - русское слово) и прослушивать этот файл во время занятий рутинными или домашними делами. К примеру, во время уборки по дому вы включаете не музыку, а сгенерированный МП3 файл и запоминаете новые слова, или же вы быть может решите прослушать этот же файл ещё раз во время дороги на работу или учебу.
+                    </p>
+                    <p class="text">
+                        Таким образом, прослушав несколько раз аудифайл, вы без всякого труда запомните новые слова. 
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="try_it">
+        <div class="overlay">
+            <div class="content">
+                <div class="container container-max-height">
+                    <p class="text">
+                        Зарегистрируйтесь и получите возможность создавать неограниченное кол-во заметок и сохранять в формате MP3 неограниченное количество слов. 
+                    </p>
+                    <div class="btn_sec">
+                        <button><a href="{% url 'registration' %}" class="a_on_black">Регистрация</a></button>
+                        <button><a href="{% url 'add_note' %}" class="a_on_black">Попробовать без регистрации</a></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="how_it_works" id="how_it_works">
+        <div class="container">
+            <h2><span>Как это работает?</span></h2>
+            <div class="row">
+                <div class="col-12 col-lg-6 order-2 order-lg-1 d-flex justify-content-center flex-column">
+                    <ol>
+                        <li>Вы создаете новую запись, где пишите список слов с переводом в формате “английского слово - русское слово”  (незарегистрированным пользователям доступно добавление максимум 10 слов). </li>
+                        <li>Генерируете и сохраняете данный аудиофайл на компьютере или смартфоне, чтобы всегда иметь к нему доступ.</li>
+                        <li>Теперь вы можете включать данный аудифайл во время домашних дел, рутинной работы, по дороге на учебу или работу и запоминать новые слова.</li>
+                    </ol>
+                </div>
+                <div class="col-12 col-lg-6 order-1 order-lg-2 d-flex justify-content-center flex-column">
+                    <img src="{% static 'img/image 1.png' %}" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer>
+        <div class="overlay">
+            <div class="content">
+                <div class="container container-max-height">
+                    <p class="text">
+                        © «WordRepeater», 2021.
+                    </p>
+                    <p class="text">
+                        Все права защищены. <a href="#" class="a_on_black">Политика конфиденциальности</a>. Не является публичной офертой.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Link JQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js" crossorigin="anonymous"></script>
+
+    <!-- Custom scroll -->
+    <script src="{% static 'libs/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+
+    <!-- Link our main.js file -->
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+
+
+
+
+</html>

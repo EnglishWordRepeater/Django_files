@@ -1,0 +1,45 @@
+{% extends 'main_templates/base.html' %}
+
+
+{% block title %}
+Главная
+{% endblock %}
+
+
+
+{% block work_zone %}
+<div class="home_authorization">
+    <div class="content_output">
+
+        {% if notes.count > 0 %}
+            {% for el in notes %}
+                <div class="note">
+                    <div class="row">
+                        <div class="col-10">
+                            <h4 class="note_title">{{ el.name }}</h4>
+                        </div>
+                        <div class="col-2">
+                            <div class="note_buttns">
+                                <!-- <div class="note_btn"><a href="#" class="a_on_black">MP3</a></div>
+                                <div class="note_btn"><a href="#" class="a_on_black">PDF</a></div> -->
+                                <div class="note_btn"><a href="{% url 'delete' el.id %}" class="a_on_black">Удалить</a></div>
+                                <div class="note_btn"><a href="{% url 'change_page' el.id %}" class="a_on_black">Изменить</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="alert">Записей пока нет...</div>
+        {% endif %}
+
+    </div>
+
+    <div class="optional_buttons">
+        <button name="save_in_personal"><a href="{% url 'add_note' %}" class="a_on_black">Добавить запись</a></button>
+    </div>
+</div>
+{% endblock %}
+
+
+
