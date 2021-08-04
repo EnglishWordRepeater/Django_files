@@ -103,6 +103,33 @@ $('#main_work_form :checkbox').change(function() {
     } 
 
 });
+
+
+
+
+// ___________________________________________________________
+// *** Эксперементы с AJAX 
+$('#test_ajax').click(function() {
+
+    var word = "HELLO!";
+
+    var request = $.ajax({
+        url: "script.php",
+        type: "POST",
+        data: {id : word},
+        dataType: "html"
+    });
+    
+    request.done(function(msg) {
+        alert(msg);
+    });
+    
+    request.fail(function(jqXHR, textStatus) {
+        alert( "Request failed: " + textStatus );
+    });
+    
+
+});
   
 });
   

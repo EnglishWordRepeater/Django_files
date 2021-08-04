@@ -26,6 +26,15 @@ import pyttsx3
 import ffmpeg 
 # import codecs
 
+
+# --------
+# Тест AJAX 
+def translate(request):
+    translator = Translator() 
+    word_ru = translator.translate('HELLO!').text
+    return word_ru
+
+
 # --------
 # Показывает главную страницу 
 def main_page(request):
