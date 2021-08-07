@@ -13,4 +13,4 @@ urlpatterns = [
     path('login/', views.login_user, name='login'), # для зареганного
     path('logout/', views.logout_user, name='logout'), # для выхода
     path('delete/<int:id>', views.delete_page, name='delete'), # для выхода
-]
+] 

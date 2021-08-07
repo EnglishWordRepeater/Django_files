@@ -62,7 +62,6 @@
         </div>  
     </div>
 
-
     <footer>
         <div class="overlay">
             <div class="content">
@@ -88,6 +87,49 @@
 
     <!-- Link our main.js file -->
     <script src="{% static 'js/main.js' %}"></script>
+
+
+    <!-- Test script -->
+    <script>
+        $(document).ready(function ($) {
+
+            // ___________________________________________________________
+            // *** Обработка AJAX логики
+            $('.new_block').click(function() {
+
+                var papik = $(this);
+                console.log(papik) 
+
+                // Перевод на русский 
+                $(this).find('.word_en').keyup(function() {
+                    var word = papik.find('.word_en input').val();
+                    var request = $.ajax({
+                        url: "{% url 'translate' %}",
+                        type: "GET",
+                        data: {text_en : word},
+                        dataType: "text"
+                    });
+
+                    if ($('#auto_trnslate').is(':checked')) {
+                        request.done(function(msg) {
+                            papik.find('.word_ru input').val(msg);
+                        });
+                        // request.fail(function(jqXHR, textStatus) {
+                        //     alert( "Request failed: " + textStatus );
+                        // });
+                    } else {
+                        request.abort();
+                    }
+                });
+
+                // Перевод на английский 
+                // ???
+               
+            });
+  
+        });
+  
+    </script>
 </body>
 
 

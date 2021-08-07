@@ -31,8 +31,9 @@ import ffmpeg
 # Тест AJAX 
 def translate(request):
     translator = Translator() 
-    word_ru = translator.translate('HELLO!').text
-    return word_ru
+    word_ru = translator.translate(request.GET['text_en'], dest='ru').text
+    print(word_ru)
+    return HttpResponse(word_ru)
 
 
 # --------

@@ -85,51 +85,6 @@ $('#add_new_word').click(function () {
     $('#count').attr("value", count - 1);
 });
   
-
-// ___________________________________________________________
-// *** Обработка AJAX логики
-$('#main_work_form :checkbox').change(function() {
-
-    if (this.checked) {
-
-        // Отправляем запрос на сервер и получаем перевод
-        $('.new_block').click(function() {
-            $(this).find('.word_en').change(function() {
-
-            });
-        });
-
-        // Запрещаем ввод перевода до тех пор пока не введен оригинал слова на английском
-    } 
-
-});
-
-
-
-
-// ___________________________________________________________
-// *** Эксперементы с AJAX 
-$('#test_ajax').click(function() {
-
-    var word = "HELLO!";
-
-    var request = $.ajax({
-        url: "script.php",
-        type: "POST",
-        data: {id : word},
-        dataType: "html"
-    });
-    
-    request.done(function(msg) {
-        alert(msg);
-    });
-    
-    request.fail(function(jqXHR, textStatus) {
-        alert( "Request failed: " + textStatus );
-    });
-    
-
-});
   
 });
   
